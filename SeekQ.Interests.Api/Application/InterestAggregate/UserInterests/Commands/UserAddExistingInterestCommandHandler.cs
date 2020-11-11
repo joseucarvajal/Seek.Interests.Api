@@ -55,44 +55,37 @@ namespace SeekQ.Interests.Api.Application.InterestAggregate.UserInterests.Comman
             {
                 Guid id = request.Id;
                 int visibility = request.Visibility;
-                Guid uid = request.UserId;
+                Guid userId = request.UserId;
 
                 Interest existingInterest = _interestsDbContext.Interests.Find(id);
 
                 if (existingInterest != null)
                 {
-                    UserInterest existingUserInterest = await _interestsDbContext.UserInterests.AsNoTracking().SingleOrDefaultAsync(u => u.IdInterest == id);
+                    UserInterest existingUserInterest = await _interestsDbContext.UserInterests.AsNoTracking().SingleOrDefaultAsync(u => u.IdInterest == id && u.IdUser == userId);
 
                     if (existingUserInterest != null)
                     {
-                        throw new AppException($"The user adds an interest {id} has already been added");
+                        throw new AppException($"The user interest {id} has already been added");
                     }
                     else
                     {
-                        UserInterest userInterest = new UserInterest{ 
+                        UserInterest userInterest = new UserInterest
+                        { 
                             IdInterest = id,
                             Visibility = visibility,
-                            IdUser = uid
+                            IdUser = userId
                         };
                         _interestsDbContext.UserInterests.Add(userInterest);
 
-                        int count = await _interestsDbContext.SaveChangesAsync();
-                        if (count > 0)
-                        {
-                            existingInterest.PeopleCount = existingInterest.PeopleCount + 1;
-                            _interestsDbContext.Interests.Update(existingInterest);
+                        existingInterest.PeopleCount = existingInterest.PeopleCount + 1;
+                        _interestsDbContext.Interests.Update(existingInterest);
 
-                            return count > 0;
-                        }
-                        else
-                        {
-                            throw new AppException($"The interest {id} already as not been updated");
-                        }
+                        return await _interestsDbContext.SaveChangesAsync() > 0;
                     }
                 }
                 else
                 {
-                    throw new AppException($"The user adds an interest {id} already as not been added");
+                    throw new AppException($"The interest {id} already as not been found");
                 }
             }
         }

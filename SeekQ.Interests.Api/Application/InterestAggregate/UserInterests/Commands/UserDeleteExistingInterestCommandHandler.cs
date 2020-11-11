@@ -14,15 +14,18 @@ namespace SeekQ.Interests.Api.Application.InterestAggregate.UserInterests.Comman
     {
         public class Command : IRequest<bool>
         {
-            public Guid Id { get; set; }
-
+            public Command(Guid userInterestId)
+            {
+                UserInterestId = userInterestId;
+            }
+            public Guid UserInterestId { get; set; }
         }
 
         public class CommandValidator : AbstractValidator<Command>
         {
             public CommandValidator()
             {
-                RuleFor(x => x.Id)
+                RuleFor(x => x.UserInterestId)
                     .NotNull().NotEmpty().WithMessage("The user interests Id is required");
             }
 
@@ -46,14 +49,27 @@ namespace SeekQ.Interests.Api.Application.InterestAggregate.UserInterests.Comman
                 CancellationToken cancellationToken
             )
             {
-                Guid id = request.Id;
+                Guid id = request.UserInterestId;
 
                 UserInterest existingUserInterest = _interestsDbContext.UserInterests.Find(id);
 
                 if (existingUserInterest != null)
                 {
+                    Guid interestId = existingUserInterest.IdInterest;
                     _interestsDbContext.UserInterests.Remove(existingUserInterest);
-                    return await _interestsDbContext.SaveChangesAsync() > 0;
+                    Interest existingInterest = _interestsDbContext.Interests.Find(interestId);
+
+                    if (existingInterest != null)
+                    {
+                        existingInterest.PeopleCount = existingInterest.PeopleCount - 1;
+                        _interestsDbContext.Interests.Update(existingInterest);
+
+                        return await _interestsDbContext.SaveChangesAsync() > 0;
+                    }
+                    else
+                    {
+                        throw new AppException($"The interest {interestId} already as not been found");
+                    }
                 }
                 else
                 {

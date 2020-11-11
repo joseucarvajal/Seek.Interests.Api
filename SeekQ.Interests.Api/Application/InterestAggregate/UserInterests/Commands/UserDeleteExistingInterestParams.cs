@@ -7,5 +7,6 @@ namespace SeekQ.Interests.Api.Application.InterestAggregate.UserInterests.Comman
 {
     public class UserDeleteExistingInterestParams
     {
+        public Guid UserInterestId { get; set; }
     }
 }

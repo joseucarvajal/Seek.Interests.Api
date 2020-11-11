@@ -14,7 +14,6 @@ namespace SeekQ.Interests.Api.Application.InterestAggregate.UserInterests.Comman
     {
         public class Command : IRequest<bool>
         {
-            public Guid Id { get; set; }
             public string Name { get; set; }
             public int Visibility { get; set; }
             public Guid UserId { get; set; }
@@ -24,9 +23,6 @@ namespace SeekQ.Interests.Api.Application.InterestAggregate.UserInterests.Comman
         {
             public CommandValidator()
             {
-                RuleFor(x => x.Id)
-                    .NotNull().NotEmpty().WithMessage("The user interests Id is required");
-
                 RuleFor(x => x.Visibility)
                     .NotNull().NotEmpty().WithMessage("The user interests Visibility is required");
 
@@ -57,70 +53,37 @@ namespace SeekQ.Interests.Api.Application.InterestAggregate.UserInterests.Comman
                 CancellationToken cancellationToken
             )
             {
-                Guid id = request.Id;
                 string name = request.Name;
                 int visibility = request.Visibility;
-                Guid uid = request.UserId;
+                Guid userId = request.UserId;
 
-                Interest existingInterest = _interestsDbContext.Interests.Find(id);
+                Interest existingInterest = await _interestsDbContext.Interests.AsNoTracking().SingleOrDefaultAsync(i => i.Name == name);
 
                 if (existingInterest != null)
                 {
-                    UserInterest existingUserInterest = await _interestsDbContext.UserInterests.AsNoTracking().SingleOrDefaultAsync(u => u.IdInterest == id);
-
-                    if (existingUserInterest != null)
-                    {
-                        throw new AppException($"The user adds an interest {id} has already been added");
-                    }
-                    else
-                    {
-                        UserInterest userInterest = new UserInterest
-                        {
-                            IdInterest = id,
-                            Visibility = visibility,
-                            IdUser = uid
-                        };
-                        _interestsDbContext.UserInterests.Add(userInterest);
-
-                        int count = await _interestsDbContext.SaveChangesAsync();
-                        if (count > 0)
-                        {
-                            existingInterest.PeopleCount = existingInterest.PeopleCount + 1;
-                            _interestsDbContext.Interests.Update(existingInterest);
-
-                            return count > 0;
-                        }
-                        else
-                        {
-                            throw new AppException($"The interest {id} already as not been updated");
-                        }
-                    }
+                    throw new AppException($"The interest {name} has already been added");
                 }
                 else
                 {
+                    Guid interestId = Guid.NewGuid();
                     Interest Interest = new Interest
                     {
+                        Id = interestId,
                         Name = name,
                         PeopleCount = 1,
                         Visibility = visibility
                     };
-
                     _interestsDbContext.Interests.Add(Interest);
-                    int count = await _interestsDbContext.SaveChangesAsync();
-                    if(count > 0)
+
+                    UserInterest userInterest = new UserInterest
                     {
-                        UserInterest userInterest = new UserInterest
-                        {
-                            IdInterest = Interest.Id,
-                            Visibility = visibility,
-                            IdUser = uid
-                        };
-                        _interestsDbContext.UserInterests.Add(userInterest);
+                        IdInterest = interestId,
+                        Visibility = visibility,
+                        IdUser = userId
+                    };
+                    _interestsDbContext.UserInterests.Add(userInterest);
 
-                        return await _interestsDbContext.SaveChangesAsync() > 0;
-                    }
-
-                    throw new AppException($"The user adds an interest {id} already as not been added");
+                    return await _interestsDbContext.SaveChangesAsync() > 0;
                 }
             }
         }

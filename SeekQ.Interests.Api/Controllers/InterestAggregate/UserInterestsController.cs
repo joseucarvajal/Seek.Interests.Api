@@ -55,15 +55,15 @@ namespace SeekQ.Interests.Api.Controllers.InterestAggregate
         }
 
         [HttpDelete]
-        [Route("deleteexistinginterest")]
+        [Route("deleteexistinginterest/{userInterestId}")]
         [SwaggerOperation(Summary = "Delete User existing interest: and user decrease an interest")]
         [SwaggerResponse((int)HttpStatusCode.OK, "Interest deleted and user decrease an interest succesfully")]
         [SwaggerResponse((int)HttpStatusCode.BadRequest, "Bad Request")]
         public async Task<bool> DeleteExistingInterest(
-            [FromBody]UserDeleteExistingInterestCommandHandler.Command userDeleteExistingInterestParams
+            [FromRoute] Guid userInterestId
         )
         {
-            return await _mediator.Send(userDeleteExistingInterestParams);
+            return await _mediator.Send(new UserDeleteExistingInterestCommandHandler.Command(userInterestId));
         }
     }
 }

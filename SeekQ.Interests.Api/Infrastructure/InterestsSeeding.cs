@@ -46,6 +46,9 @@ namespace SeekQ.Interests.Api.Infrastructure
         public static readonly Guid ID_INTEREST_INDIE_MUSIC = new Guid("545DE66E-19AC-47D2-57F6-08D871533I22");
         public static readonly Guid ID_INTEREST_EDM = new Guid("545DE66E-19AC-47D2-57F6-08D871533I23");
 
+        // Statics IDs for user interests
+        public static readonly Guid ID_USER_INTEREST_TEST = new Guid("545DE66E-19AC-47D2-57F6-08D871533I50");
+
         public async Task SeedAsync(InterestsDbContext context, IServiceProvider services)
         {
             // Get a logger
@@ -68,12 +71,14 @@ namespace SeekQ.Interests.Api.Infrastructure
             });
             context.Interests.Add(new Interest
             {
+                Id = ID_INTEREST_DOG_LOVER,
                 Name = "Dog lover",
                 PeopleCount = 0,
                 Visibility = Level.Public.Id
             });
             context.Interests.Add(new Interest
             {
+                Id = ID_INTEREST_HORSES,
                 Name = "Horses",
                 PeopleCount = 0,
                 Visibility = Level.Public.Id
@@ -82,114 +87,133 @@ namespace SeekQ.Interests.Api.Infrastructure
             // Misc
             context.Interests.Add(new Interest
             {
+                Id = ID_INTEREST_BEACH_LOVER,
                 Name = "Beach lover",
                 PeopleCount = 0,
                 Visibility = Level.Public.Id
             });
             context.Interests.Add(new Interest
             {
+                Id = ID_INTEREST_COFFEE,
                 Name = "Coffee",
                 PeopleCount = 0,
                 Visibility = Level.Public.Id
             });
             context.Interests.Add(new Interest
             {
+                Id = ID_INTEREST_CONCERTS,
                 Name = "Concerts",
                 PeopleCount = 0,
                 Visibility = Level.Public.Id
             });
             context.Interests.Add(new Interest
             {
+                Id = ID_INTEREST_CRAFT_BEER,
                 Name = "Craft beer",
                 PeopleCount = 0,
                 Visibility = Level.Public.Id
             });
             context.Interests.Add(new Interest
             {
+                Id = ID_INTEREST_LAKES,
                 Name = "Lakes",
                 PeopleCount = 0,
                 Visibility = Level.Public.Id
             });
             context.Interests.Add(new Interest
             {
+                Id = ID_INTEREST_OUTDOORS,
                 Name = "Outdoors",
                 PeopleCount = 0,
                 Visibility = Level.Public.Id
             });
             context.Interests.Add(new Interest
             {
+                Id = ID_INTEREST_PARTIES,
                 Name = "Parties",
                 PeopleCount = 0,
                 Visibility = Level.Public.Id
             });
             context.Interests.Add(new Interest
             {
+                Id = ID_INTEREST_ROAD_TRIPS,
                 Name = "Road trips",
                 PeopleCount = 0,
                 Visibility = Level.Public.Id
             });
             context.Interests.Add(new Interest
             {
+                Id = ID_INTEREST_CARS,
                 Name = "Cars",
                 PeopleCount = 0,
                 Visibility = Level.Public.Id
             });
             context.Interests.Add(new Interest
             {
+                Id = ID_INTEREST_VEGETARIAN,
                 Name = "Vegetarian",
                 PeopleCount = 0,
                 Visibility = Level.Public.Id
             });
             context.Interests.Add(new Interest
             {
+                Id = ID_INTEREST_WINE,
                 Name = "Wine",
                 PeopleCount = 0,
                 Visibility = Level.Public.Id
             });
             context.Interests.Add(new Interest
             {
+                Id = ID_INTEREST_ADVENTURE,
                 Name = "Adventure",
                 PeopleCount = 0,
                 Visibility = Level.Public.Id
             });
             context.Interests.Add(new Interest
             {
+                Id = ID_INTEREST_TATTOOS,
                 Name = "Tattoos",
                 PeopleCount = 0,
                 Visibility = Level.Public.Id
             });
             context.Interests.Add(new Interest
             {
+                Id = ID_INTEREST_HIP_HOP,
                 Name = "Hip Hop",
                 PeopleCount = 0,
                 Visibility = Level.Public.Id
             });
             context.Interests.Add(new Interest
             {
+                Id = ID_INTEREST_RAP,
                 Name = "Rap",
                 PeopleCount = 0,
                 Visibility = Level.Public.Id
             });
             context.Interests.Add(new Interest
             {
+                Id = ID_INTEREST_CLASSIC_ROCK,
                 Name = "Classic rock",
                 PeopleCount = 0,
                 Visibility = Level.Public.Id
             });
             context.Interests.Add(new Interest
             {
+                Id = ID_INTEREST_COUNTRY_MUSIC,
                 Name = "Country music",
                 PeopleCount = 0,
                 Visibility = Level.Public.Id
             });
             context.Interests.Add(new Interest
             {
+                Id = ID_INTEREST_POP,
                 Name = "Pop",
                 PeopleCount = 0,
                 Visibility = Level.Public.Id
             });
             context.Interests.Add(new Interest
             {
+                Id = ID_INTEREST_FOREIGN_FILMS,
                 Name = "Foreign films",
                 PeopleCount = 0,
                 Visibility = Level.Public.Id
@@ -462,55 +486,55 @@ namespace SeekQ.Interests.Api.Infrastructure
             {
                 Name = "Activism",
                 PeopleCount = 0,
-                Visibility = Level.Public.Id
+                Visibility = Level.Private.Id
             });
             context.Interests.Add(new Interest
             {
                 Name = "Politics",
                 PeopleCount = 0,
-                Visibility = Level.Public.Id
+                Visibility = Level.Private.Id
             });
             context.Interests.Add(new Interest
             {
                 Name = "Religion",
                 PeopleCount = 0,
-                Visibility = Level.Public.Id
+                Visibility = Level.Private.Id
             });
             context.Interests.Add(new Interest
             {
                 Name = "STEM",
                 PeopleCount = 0,
-                Visibility = Level.Public.Id
+                Visibility = Level.Private.Id
             });
             context.Interests.Add(new Interest
             {
                 Name = "Logic",
                 PeopleCount = 0,
-                Visibility = Level.Public.Id
+                Visibility = Level.Private.Id
             });
             context.Interests.Add(new Interest
             {
                 Name = "Change the world",
                 PeopleCount = 0,
-                Visibility = Level.Public.Id
+                Visibility = Level.Private.Id
             });
             context.Interests.Add(new Interest
             {
                 Name = "Spiritual",
                 PeopleCount = 0,
-                Visibility = Level.Public.Id
+                Visibility = Level.Private.Id
             });
             context.Interests.Add(new Interest
             {
                 Name = "Spontaneous",
                 PeopleCount = 0,
-                Visibility = Level.Public.Id
+                Visibility = Level.Private.Id
             });
             context.Interests.Add(new Interest
             {
                 Name = "Volunteering",
                 PeopleCount = 0,
-                Visibility = Level.Public.Id
+                Visibility = Level.Private.Id
             });
 
             // BACKUP/MAYBE
@@ -518,49 +542,49 @@ namespace SeekQ.Interests.Api.Infrastructure
             {
                 Name = "Surfing",
                 PeopleCount = 0,
-                Visibility = Level.Public.Id
+                Visibility = Level.Private.Id
             });
             context.Interests.Add(new Interest
             {
                 Name = "Cycling",
                 PeopleCount = 0,
-                Visibility = Level.Public.Id
+                Visibility = Level.Private.Id
             });
             context.Interests.Add(new Interest
             {
                 Name = "Environmentalism",
                 PeopleCount = 0,
-                Visibility = Level.Public.Id
+                Visibility = Level.Private.Id
             });
             context.Interests.Add(new Interest
             {
                 Name = "Crossfit",
                 PeopleCount = 0,
-                Visibility = Level.Public.Id
+                Visibility = Level.Private.Id
             });
             context.Interests.Add(new Interest
             {
                 Name = "Combat sports",
                 PeopleCount = 0,
-                Visibility = Level.Public.Id
+                Visibility = Level.Private.Id
             });
             context.Interests.Add(new Interest
             {
                 Name = "Alternative (music)",
                 PeopleCount = 0,
-                Visibility = Level.Public.Id
+                Visibility = Level.Private.Id
             });
             context.Interests.Add(new Interest
             {
                 Name = "Martial arts",
                 PeopleCount = 0,
-                Visibility = Level.Public.Id
+                Visibility = Level.Private.Id
             });
             context.Interests.Add(new Interest
             {
                 Name = "Vegan",
                 PeopleCount = 0,
-                Visibility = Level.Public.Id
+                Visibility = Level.Private.Id
             });
 
             // Black list
@@ -790,6 +814,7 @@ namespace SeekQ.Interests.Api.Infrastructure
             });
             context.UserInterests.Add(new UserInterest
             {
+                Id = ID_USER_INTEREST_TEST,
                 IdUser = ID_USER_JOSE,
                 IdInterest = ID_INTEREST_POP,
                 Visibility = Level.Private.Id

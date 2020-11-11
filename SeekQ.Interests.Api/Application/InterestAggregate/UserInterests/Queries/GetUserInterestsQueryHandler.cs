@@ -41,7 +41,7 @@ namespace SeekQ.Interests.Api.Application.InterestAggregate.UserInterests.Querie
                     string sql =
                         @"
                         SELECT 
-	                        u.Id as userInterestsId, t.Name as interestName
+	                        u.Id as userInterestsId, t.Name as interestName, t.Visibility
                         FROM 
 	                        UserInterests u
                             LEFT JOIN Interests t ON u.IdInterest = t.Id

@@ -7,5 +7,8 @@ namespace SeekQ.Interests.Api.Application.InterestAggregate.UserInterests.Comman
 {
     public class UserAddNewInterestParams
     {
+        public string Name { get; set; }
+        public int Visibility { get; set; }
+        public Guid UserId { get; set; }
     }
 }
