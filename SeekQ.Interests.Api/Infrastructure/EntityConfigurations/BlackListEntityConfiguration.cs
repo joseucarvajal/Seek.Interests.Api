@@ -8,13 +8,15 @@ namespace SeekQ.Interests.Api.Infrastructure.EntityConfigurations
     {
         public void Configure(EntityTypeBuilder<BlackList> builder)
         {
-            builder.ToTable("BlackList");
+            builder.ToTable("BlackLists");
 
             builder.HasKey(c => c.Id);
 
             builder.Property(c => c.Name)
                 .HasMaxLength(50)
                 .IsRequired(true);
+
+            builder.HasIndex(c => c.Name).IsUnique();
         }
     }
 }

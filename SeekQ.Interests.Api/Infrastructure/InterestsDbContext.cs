@@ -13,7 +13,7 @@ namespace SeekQ.Interests.Api.Infrastructure
         }
 
         public DbSet<Interest> Interests { get; set; }
-        public DbSet<UserInterests> UserInterests { get; set; }
+        public DbSet<UserInterest> UserInterests { get; set; }
         public DbSet<BlackList> BlackLists { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

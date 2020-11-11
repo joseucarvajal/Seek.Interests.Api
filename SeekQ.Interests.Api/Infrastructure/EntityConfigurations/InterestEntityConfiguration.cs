@@ -16,6 +16,8 @@ namespace SeekQ.Interests.Api.Infrastructure.EntityConfigurations
                 .HasMaxLength(50)
                 .IsRequired(true);
 
+            builder.HasIndex(c => c.Name).IsUnique();
+
             builder.Property(c => c.PeopleCount)
                 .IsRequired(true);
 

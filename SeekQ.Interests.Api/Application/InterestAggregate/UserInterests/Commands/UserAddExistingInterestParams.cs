@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace SeekQ.Interests.Api.Application.InterestAggregate.Interests.Commands
+namespace SeekQ.Interests.Api.Application.InterestAggregate.UserInterests.Commands
 {
     public class UserAddExistingInterestParams
     {
+        public Guid Id { get; set; }
+        public int Visibility { get; set; }
     }
 }

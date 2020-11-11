@@ -4,9 +4,9 @@ using SeekQ.Interests.Api.Domain.InterestAggregate;
 
 namespace SeekQ.Interests.Api.Infrastructure.EntityConfigurations
 {
-    public class UserInterestsEntityConfiguration : IEntityTypeConfiguration<UserInterests>
+    public class UserInterestsEntityConfiguration : IEntityTypeConfiguration<UserInterest>
     {
-        public void Configure(EntityTypeBuilder<UserInterests> builder)
+        public void Configure(EntityTypeBuilder<UserInterest> builder)
         {
             builder.ToTable("UserInterests");
 
