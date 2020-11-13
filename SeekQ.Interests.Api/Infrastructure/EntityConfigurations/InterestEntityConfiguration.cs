@@ -12,9 +12,7 @@ namespace SeekQ.Interests.Api.Infrastructure.EntityConfigurations
 
             builder.HasKey(c => c.Id);
 
-            builder.Property(c => c.Name)
-                .HasMaxLength(50)
-                .IsRequired(true);
+            builder.Property(c => c.Name).HasMaxLength(50);
 
             builder.HasIndex(c => c.Name).IsUnique();
 

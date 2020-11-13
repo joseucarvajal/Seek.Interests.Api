@@ -1,7 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using SeekQ.Interests.Api;
 using SeekQ.Interests.Api.Application.InterestAggregate.Interests.Queries;
+using SeekQ.Interests.Api.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;

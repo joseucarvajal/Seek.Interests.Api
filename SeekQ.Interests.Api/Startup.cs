@@ -29,19 +29,11 @@ namespace SeekQ.Interests.Api
                     .AddFluentValidation(cfg =>
                     {
                         cfg.RegisterValidatorsFromAssemblyContaining<GetDefaultInterestsQueryHandler>();
-                        cfg.RegisterValidatorsFromAssemblyContaining<SearchInterestByNameQueryHandler>();
-                        cfg.RegisterValidatorsFromAssemblyContaining<GetUserInterestsQueryHandler>();
                         cfg.RunDefaultMvcValidationAfterFluentValidationExecutes = false;
                     });
 
             services.AddCustomMSSQLDbContext<InterestsDbContext>(Configuration)
                     .AddMediatR(typeof(GetDefaultInterestsQueryHandler).Assembly);
-
-            services.AddCustomMSSQLDbContext<InterestsDbContext>(Configuration)
-                    .AddMediatR(typeof(SearchInterestByNameQueryHandler).Assembly);
-
-            services.AddCustomMSSQLDbContext<InterestsDbContext>(Configuration)
-                    .AddMediatR(typeof(GetUserInterestsQueryHandler).Assembly);
 
             services.AddSwaggerGen(config => {
                 config.CustomSchemaIds(x => x.FullName);

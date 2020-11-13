@@ -39,26 +39,26 @@ namespace SeekQ.Interests.Api.Application.InterestAggregate.Interests.Queries
                         SELECT 
 	                        t.Id as interestsId, t.Name as interestName
                         FROM 
-	                        Interest t
+	                        Interests t
                         ORDER BY t.Id ASC";
 
                     var defaultInterests = new GetDefaultInterestsViewModel();
 
-                    var result = await conn.QueryAsync<GetDefaultInterestsViewModel, Interest, GetDefaultInterestsViewModel>(sql, (t, i) =>
+                    var result = await conn.QueryAsync<Interest, Interest, Interest>(sql, (t, i) =>
                     {
-                        if(i.Visibility == 0) 
+                        if(t.Visibility == 0) 
                         {
-                            defaultInterests.DefaultPublicInterests.Append(i);
+                            defaultInterests.DefaultPublicInterests.Append(t);
                         } 
-                        else if (i.Visibility == 1)
+                        else if (t.Visibility == 1)
                         {
-                            defaultInterests.DefaultPrivateInterests.Append(i);
+                            defaultInterests.DefaultPrivateInterests.Append(t);
                         }
 
                         return t;
                     });
 
-                    return (GetDefaultInterestsViewModel)result;
+                    return defaultInterests;
                 }
             }
         }

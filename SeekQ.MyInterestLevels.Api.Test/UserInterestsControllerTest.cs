@@ -31,7 +31,7 @@ namespace SeekQ.MyInterestLevels.Api.Test
             var client = Factory.CreateClient();
 
             // Act
-            var response = await client.GetAsync($"{url}/{InterestsSeeding.ID_USER_JOSE}");
+            var response = await client.GetAsync($"{url}/545DE66E-19AC-47D2-57F6-08D8715337D7");
 
             // Assert
             response.EnsureSuccessStatusCode();
@@ -51,9 +51,9 @@ namespace SeekQ.MyInterestLevels.Api.Test
             var client = Factory.CreateClient();
             UserAddExistingInterestParams userAddExistingInterestParams = new UserAddExistingInterestParams
             {
-                Id = InterestsSeeding.ID_INTEREST_FOREIGN_FILMS,
+                Id = new Guid("8ABDEA3E-74C6-413A-983A-FA1B6571F244"),
                 Visibility = Level.Public.Id,
-                UserId = InterestsSeeding.ID_USER_JOSE
+                UserId = new Guid("545DE66E-19AC-47D2-57F6-08D8715337D9")
             };
 
             // Content
@@ -82,7 +82,7 @@ namespace SeekQ.MyInterestLevels.Api.Test
             {
                 Name = "New Interest",
                 Visibility = Level.Public.Id,
-                UserId = InterestsSeeding.ID_USER_JOSE,
+                UserId = new Guid("545DE66E-19AC-47D2-57F6-08D8715337D9")
             };
 
             // Content
@@ -108,7 +108,7 @@ namespace SeekQ.MyInterestLevels.Api.Test
             var client = Factory.CreateClient();
 
             // Act
-            var response = await client.DeleteAsync($"{url}/{InterestsSeeding.ID_USER_INTEREST_TEST}");
+            var response = await client.DeleteAsync($"{url}/785A661F-082F-454F-BED6-AF4F15F8AE65");
 
             // Assert
             response.EnsureSuccessStatusCode();

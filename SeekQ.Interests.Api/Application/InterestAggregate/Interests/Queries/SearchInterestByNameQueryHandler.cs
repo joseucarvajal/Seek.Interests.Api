@@ -41,7 +41,7 @@ namespace SeekQ.Interests.Api.Application.InterestAggregate.Interests.Queries
                         SELECT 
 	                        t.Id as interestsId, t.Name as interestName, t.PeopleCount as peopleCount
                         FROM 
-	                        Interest t
+	                        Interests t
 		                WHERE t.Name LIKE '%@Name%'
                         ORDER BY t.Id ASC
                         LIMIT 7";

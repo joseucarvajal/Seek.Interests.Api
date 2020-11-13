@@ -11,43 +11,43 @@ namespace SeekQ.Interests.Api.Infrastructure
     public class InterestsSeeding
     {
         // Statics IDs for users
-        public static readonly Guid ID_USER_JOSE = new Guid("545DE66E-19AC-47D2-57F6-08D8715337D7");
-        public static readonly Guid ID_USER_DANIEL = new Guid("545DE66E-19AC-47D2-57F6-08D8715337D9");
-        public static readonly Guid ID_USER_JORGE = new Guid("545DE66E-19AC-47D2-57F6-08D8715337D8");
-        public static readonly Guid ID_USER_LLIUR = new Guid("545DE66E-19AC-47D2-57F6-08D8715337D7");
-        public static readonly Guid ID_USER_JULIAN = new Guid("545DE66E-19AC-47D2-57F6-08D8715337D6");
-        public static readonly Guid ID_USER_CARLOS = new Guid("545DE66E-19AC-47D2-57F6-08D8715337D5");
-        public static readonly Guid ID_USER_ANDRES = new Guid("545DE66E-19AC-47D2-57F6-08D8715337D4");
-        public static readonly Guid ID_USER_DAVID = new Guid("545DE66E-19AC-47D2-57F6-08D8715337D3");
+        public Guid ID_USER_JOSE = new Guid("545DE66E-19AC-47D2-57F6-08D8715337D7");
+        public Guid ID_USER_DANIEL = new Guid("545DE66E-19AC-47D2-57F6-08D8715337D9");
+        public Guid ID_USER_JORGE = new Guid("545DE66E-19AC-47D2-57F6-08D8715337D8");
+        public Guid ID_USER_LLIUR = new Guid("545DE66E-19AC-47D2-57F6-08D8715337D7");
+        public Guid ID_USER_JULIAN = new Guid("545DE66E-19AC-47D2-57F6-08D8715337D6");
+        public Guid ID_USER_CARLOS = new Guid("545DE66E-19AC-47D2-57F6-08D8715337D5");
+        public Guid ID_USER_ANDRES = new Guid("545DE66E-19AC-47D2-57F6-08D8715337D4");
+        public Guid ID_USER_DAVID = new Guid("545DE66E-19AC-47D2-57F6-08D8715337D3");
 
         // Statics IDs for interests
-        public static readonly Guid ID_INTEREST_CAT_LOVER = new Guid("545DE66E-19AC-47D2-57F6-08D8715337I0");
-        public static readonly Guid ID_INTEREST_DOG_LOVER = new Guid("545DE66E-19AC-47D2-57F6-08D8715337I1");
-        public static readonly Guid ID_INTEREST_HORSES = new Guid("545DE66E-19AC-47D2-57F6-08D8715337I2");
-        public static readonly Guid ID_INTEREST_BEACH_LOVER = new Guid("545DE66E-19AC-47D2-57F6-08D8715337I3");
-        public static readonly Guid ID_INTEREST_COFFEE = new Guid("545DE66E-19AC-47D2-57F6-08D8715337I4");
-        public static readonly Guid ID_INTEREST_CONCERTS = new Guid("545DE66E-19AC-47D2-57F6-08D8715337I5");
-        public static readonly Guid ID_INTEREST_CRAFT_BEER = new Guid("545DE66E-19AC-47D2-57F6-08D8715337I6");
-        public static readonly Guid ID_INTEREST_LAKES = new Guid("545DE66E-19AC-47D2-57F6-08D8715337I7");
-        public static readonly Guid ID_INTEREST_OUTDOORS = new Guid("545DE66E-19AC-47D2-57F6-08D8715337I8");
-        public static readonly Guid ID_INTEREST_PARTIES = new Guid("545DE66E-19AC-47D2-57F6-08D8715337I9");
-        public static readonly Guid ID_INTEREST_ROAD_TRIPS = new Guid("545DE66E-19AC-47D2-57F6-08D871533I10");
-        public static readonly Guid ID_INTEREST_CARS = new Guid("545DE66E-19AC-47D2-57F6-08D871533I11");
-        public static readonly Guid ID_INTEREST_VEGETARIAN = new Guid("545DE66E-19AC-47D2-57F6-08D871533I12");
-        public static readonly Guid ID_INTEREST_WINE = new Guid("545DE66E-19AC-47D2-57F6-08D871533I13");
-        public static readonly Guid ID_INTEREST_ADVENTURE = new Guid("545DE66E-19AC-47D2-57F6-08D871533I14");
-        public static readonly Guid ID_INTEREST_TATTOOS = new Guid("545DE66E-19AC-47D2-57F6-08D871533I15");
-        public static readonly Guid ID_INTEREST_HIP_HOP = new Guid("545DE66E-19AC-47D2-57F6-08D871533I16");
-        public static readonly Guid ID_INTEREST_RAP = new Guid("545DE66E-19AC-47D2-57F6-08D871533I17");
-        public static readonly Guid ID_INTEREST_CLASSIC_ROCK = new Guid("545DE66E-19AC-47D2-57F6-08D871533I18");
-        public static readonly Guid ID_INTEREST_COUNTRY_MUSIC = new Guid("545DE66E-19AC-47D2-57F6-08D871533I19");
-        public static readonly Guid ID_INTEREST_POP = new Guid("545DE66E-19AC-47D2-57F6-08D871533I20");
-        public static readonly Guid ID_INTEREST_FOREIGN_FILMS = new Guid("545DE66E-19AC-47D2-57F6-08D871533I21");
-        public static readonly Guid ID_INTEREST_INDIE_MUSIC = new Guid("545DE66E-19AC-47D2-57F6-08D871533I22");
-        public static readonly Guid ID_INTEREST_EDM = new Guid("545DE66E-19AC-47D2-57F6-08D871533I23");
+        public Guid ID_INTEREST_CAT_LOVER = Guid.NewGuid();
+        public Guid ID_INTEREST_DOG_LOVER = Guid.NewGuid(); // new Guid("9540c6ed-835d-4907-9678-9a0a94e7a8b9");
+        public Guid ID_INTEREST_HORSES = Guid.NewGuid();
+        public Guid ID_INTEREST_BEACH_LOVER = Guid.NewGuid();
+        public Guid ID_INTEREST_COFFEE = Guid.NewGuid();
+        public Guid ID_INTEREST_CONCERTS = Guid.NewGuid();
+        public Guid ID_INTEREST_CRAFT_BEER = Guid.NewGuid();
+        public Guid ID_INTEREST_LAKES = Guid.NewGuid();
+        public Guid ID_INTEREST_OUTDOORS = Guid.NewGuid();
+        public Guid ID_INTEREST_PARTIES = Guid.NewGuid();
+        public Guid ID_INTEREST_ROAD_TRIPS = Guid.NewGuid();
+        public Guid ID_INTEREST_CARS = Guid.NewGuid();
+        public Guid ID_INTEREST_VEGETARIAN = Guid.NewGuid();
+        public Guid ID_INTEREST_WINE = Guid.NewGuid();
+        public Guid ID_INTEREST_ADVENTURE = Guid.NewGuid();
+        public Guid ID_INTEREST_TATTOOS = Guid.NewGuid();
+        public Guid ID_INTEREST_HIP_HOP = Guid.NewGuid();
+        public Guid ID_INTEREST_RAP = Guid.NewGuid();
+        public Guid ID_INTEREST_CLASSIC_ROCK = Guid.NewGuid();
+        public Guid ID_INTEREST_COUNTRY_MUSIC = Guid.NewGuid();
+        public Guid ID_INTEREST_POP = new Guid("8AFB19CA-40AF-478A-97AC-7E4A4569DE66");
+        public Guid ID_INTEREST_FOREIGN_FILMS = Guid.NewGuid();
+        public Guid ID_INTEREST_INDIE_MUSIC = Guid.NewGuid();
+        public Guid ID_INTEREST_EDM = Guid.NewGuid();
 
         // Statics IDs for user interests
-        public static readonly Guid ID_USER_INTEREST_TEST = new Guid("545DE66E-19AC-47D2-57F6-08D871533I50");
+        public Guid ID_USER_INTEREST_TEST = Guid.NewGuid();
 
         public async Task SeedAsync(InterestsDbContext context, IServiceProvider services)
         {
@@ -619,7 +619,8 @@ namespace SeekQ.Interests.Api.Infrastructure
             context.BlackLists.Add(new BlackList
             {
                 Name = "Bastard"
-            }); context.BlackLists.Add(new BlackList
+            });
+            context.BlackLists.Add(new BlackList
             {
                 Name = "Bitch"
             });
@@ -815,7 +816,7 @@ namespace SeekQ.Interests.Api.Infrastructure
             context.UserInterests.Add(new UserInterest
             {
                 Id = ID_USER_INTEREST_TEST,
-                IdUser = ID_USER_JOSE,
+                IdUser = ID_USER_DANIEL,
                 IdInterest = ID_INTEREST_POP,
                 Visibility = Level.Private.Id
             });

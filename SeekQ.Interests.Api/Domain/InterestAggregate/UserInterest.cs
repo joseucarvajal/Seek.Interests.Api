@@ -7,9 +7,17 @@ namespace SeekQ.Interests.Api.Domain.InterestAggregate
     {
         public Guid IdUser { get; set; }
         public Guid IdInterest { get; set; }
-        public Interest Interest { get; set; }
+        public Interest Interests { get; set; }
         public int Visibility { get; set; }
 
         public UserInterest() { }
+
+        public UserInterest(Guid id, Guid idUser, Guid idInterest, int visibility)
+        {
+            Id = id;
+            IdUser = idUser;
+            IdInterest = idInterest;
+            Visibility = visibility;
+        }
     }
 }

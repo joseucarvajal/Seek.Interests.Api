@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using SeekQ.Interests.Api.Domain.InterestAggregate;
+using System;
 
 namespace SeekQ.Interests.Api.Infrastructure.EntityConfigurations
 {
@@ -12,16 +13,19 @@ namespace SeekQ.Interests.Api.Infrastructure.EntityConfigurations
 
             builder.HasKey(u => u.Id);
 
-            builder.Property(u => u.IdUser)
+            builder.HasIndex(u => new { u.IdUser, u.IdInterest }).IsUnique();
+
+            builder.Property(u => u.Visibility)
                 .IsRequired(true);
 
-            builder.Property(c => c.IdInterest)
-                .IsRequired(true);
+            builder.Property<Guid>("IdInterest")
+                           .UsePropertyAccessMode(PropertyAccessMode.Field)
+                           .HasColumnName("IdInterest")
+                           .IsRequired(true);
 
-            builder.HasIndex(c => new { c.IdUser, c.IdInterest }).IsUnique();
-
-            builder.Property(c => c.Visibility)
-                .IsRequired(true);
+            builder.HasOne(u => u.Interests)
+                .WithMany()
+                .HasForeignKey("IdInterest");
         }
     }
 }
